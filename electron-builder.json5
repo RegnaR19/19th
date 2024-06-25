@@ -16,7 +16,7 @@
     {
       provider: 'github',
       owner: 'RegnaR19',
-      repo: 'electron-vite-react',
+      repo: '19th',
       releaseType: 'release'
     }
   ],
