@@ -1,0 +1,20 @@
+/* стили */
+
+.selectedPage {
+   border: 2px solid #ff2c2c;
+   padding: 1px;
+   border-radius: 3px;
+   margin: 3px;
+   cursor: pointer; 
+}
+
+.selectedPage:active {
+   border: 2px solid #452cff;
+   padding: 1px;
+   border-radius: 3px;
+   margin: 3px;
+}
+
+.link {
+   text-decoration: none;
+}

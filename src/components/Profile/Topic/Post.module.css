@@ -1,0 +1,9 @@
+.item {
+   color: rgb(205, 205, 205);
+   font-weight: 400;
+   align-self: center !important;
+}
+
+img {
+   align-self: auto !important;
+}

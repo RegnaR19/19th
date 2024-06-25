@@ -1,0 +1,22 @@
+.logo img {
+   width: 60px !important;
+}
+
+.header {
+   justify-content: center;
+   grid-row: auto;
+   flex: content;
+   flex-wrap: wrap;
+   height: max-content;
+}
+
+.login {
+   font-size: 30px;
+   font-weight: 300;
+}
+
+.leftSide {
+   position: fixed;
+   left: 25px;
+   top: 30%;
+}

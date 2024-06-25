@@ -1,0 +1,27 @@
+.logo img {
+   width: 100%;
+}
+
+.preloader {
+   color: #fff;
+}
+
+.preloader:hover {
+   filter: drop-shadow(0 0 5em #646cffaa);
+}
+
+@keyframes preloader-spin {
+   from {
+      transform: rotate(0deg);
+   }
+
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+   .preloader {
+      animation: preloader-spin infinite 5s linear;
+   }
+}

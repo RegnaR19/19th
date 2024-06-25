@@ -1,0 +1,64 @@
+/* стили */
+body {
+   background-image: url(./assets/back1.jpg) !important;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+
+.col2-app {
+   background-color: #303841;
+   width: 650px;
+   margin: 0 210px 15px 210px;
+   padding: 20px;
+   justify-content: center;
+   border: 1px solid #424242;
+   border-radius: 10px;
+}
+
+.big-text {
+   font-size: 30px;
+   font-weight: 300;
+}
+
+.big-text2 {
+   font-size: 24px;
+   font-weight: 300;
+}
+
+.status {
+   font-size: 18px;
+   font-weight: 100;
+   color: greenyellow;
+}
+
+.big-title {
+   font-size: 30px;
+   font-weight: 300;
+   margin-bottom: 20px;
+}
+
+.big-title-program {
+   font-size: 40px;
+   font-weight: 400;
+   color: sandybrown;
+}
+
+.achievement {
+   font-size: 48px;
+   font-weight: 300;
+   color: greenyellow;
+}
+
+.leftSide {
+   position: fixed;
+   left: 5%;
+   bottom: 50%;
+   background-color: greenyellow;
+   padding: 10px 30px 20px 20px;
+   font-stretch: expanded;
+   color: rgb(52, 51, 51);
+   font-size: 34px;
+   font-weight: 600;
+   border-radius: 10px;
+   box-shadow: #303841;
+}

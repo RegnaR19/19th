@@ -1,0 +1,83 @@
+/* стили */
+
+.header,
+.footer {
+   justify-content: center;
+   grid-row: auto;
+   flex: content;
+   flex-wrap: wrap;
+}
+
+.layout {
+   overflow: hidden;
+   margin-left: auto;
+   margin-right: auto;
+   width: 1100px;
+}
+
+.layout2 {
+   overflow: hidden;
+   margin-left: auto;
+   margin-right: auto;
+   width: 1100px;
+   padding: 15px;
+   margin-bottom: 10px;
+   margin-top: 10px;
+   border-radius: 10px;
+}
+
+.col1 {
+   float: left;
+   width: 190px;
+   border: 1px solid #424242;
+   background: #303841;
+   height: 100% !important;
+   border-radius: 10px;
+}
+
+.col3 {
+   width: 220px;
+   float: right;
+   border-radius: 10px;
+}
+
+.sidebar {
+   border: 1px solid #424242;
+   background: #303841;
+   padding: 10px;
+   border-radius: 10px;
+   margin-bottom: 20px;
+}
+
+.sidebar2 {
+   border: 1px solid #424242;
+   background: #303841;
+   padding: 10px;
+   border-radius: 10px;
+}
+
+.logo {
+   padding: 0.5em;
+   will-change: filter;
+   transition: filter 300ms;
+}
+
+.logo:hover {
+   filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+@keyframes logo-spin {
+   from {
+      transform: rotate(0deg);
+   }
+
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+   .logo {
+      animation: logo-spin infinite 15s linear;
+   }
+}
