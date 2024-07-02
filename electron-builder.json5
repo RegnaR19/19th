@@ -1,0 +1,46 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+  "appId": "19th",
+  "asar": true,
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": [
+    "dist-electron",
+    "dist"
+  ],
+  "mac": {
+    "artifactName": "${productName}_${version}.${ext}",
+    "target": [
+      "dmg",
+      "zip"
+    ]
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "${productName}_${version}.${ext}"
+  },
+  nsis: {
+    oneClick: false,
+    perMachine: true,
+    allowToChangeInstallationDirectory: false,
+    deleteAppDataOnUninstall: false
+  },
+  publish: [
+    {
+      provider: 'github',
+      owner: 'RegnaR19',
+      repo: '19th',
+      releaseType: 'release'
+    }
+  ],
+}

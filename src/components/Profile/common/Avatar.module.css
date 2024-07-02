@@ -1,0 +1,11 @@
+.avatar {
+   z-index: 9999 !important;
+   height: 250px;
+   width: 250px;
+}
+
+.leftSide {
+   position: fixed;
+   left: 25px;
+   top: 30%;
+}
