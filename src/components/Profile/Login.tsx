@@ -68,19 +68,19 @@ const Login: React.FC<Props> = (props: any) => {
                }}
                render={({ handleSubmit, values, submitting }) => (
                   <form onSubmit={handleSubmit}>
-                     <Field name='email' component="input">
+                     <Field name='email' component="input" autoComplete="current-password">
                         {({ input, meta }) => (
                            <div className={s.form}>
-                              <Input {...input} placeholder="Email" />
+                              <Input {...input} placeholder="Email" autoComplete="current-password" />
                               {meta.error && meta.touched && <span>{meta.error}</span>}
                            </div>
                         )}
                      </Field>
                      <Indent10 />
-                     <Field name='password' component="input" autoComplete="off" type="password">
+                     <Field name='password' component="input" autoComplete="on" type="password">
                         {({ input, meta }) => (
                            <div className={s.form}>
-                              <Input {...input} placeholder="Пароль" />
+                              <Input {...input} placeholder="Пароль" autoComplete="current-password" />
                               {meta.error && meta.touched && <span>{meta.error}</span>}
                            </div>
                         )}

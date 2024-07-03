@@ -26,7 +26,7 @@ import { useAppDispatch } from './hoc/hooks';
 import { initApp } from './redux/appReducer';
 import Dialogs from './components/Dialogs/Dialogs';
 import { IconBrandXbox } from '@tabler/icons-react';
-import UpdateElectron from '@/components/update'
+// import UpdateElectron from '@/components/update'
 
 const App = () => {
 
@@ -65,7 +65,7 @@ const App = () => {
                <HeaderTwoContainer />
             </header>
             <div className={s.layout}>
-               <nav className={s.col1}> <NavigationContainer /></nav>
+               <nav className={s.col1}><NavigationContainer /></nav>
                <aside className={s.col3}>
                   <div className={s.sidebar}><Sidebar2 /></div>
                   <div className={s.sidebar}><SidebarContainer /></div>

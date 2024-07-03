@@ -51,9 +51,11 @@ const UploadAvatar: FC<Props> = () => {
       }
    }
 
+   const icon = <IconUpload style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
+
    return (
       <>
-         <FileInput value={value} placeholder="Загрузить новый аватар" leftSection={<IconUpload size={rem(18)} />} onChange={onMainPhotoSelected} />
+         <FileInput value={value} placeholder="Загрузить новый аватар" leftSection={icon} onChange={onMainPhotoSelected} />
       </>
    );
 }

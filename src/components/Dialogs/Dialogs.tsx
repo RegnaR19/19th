@@ -1,10 +1,10 @@
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Messages from './Messages/MessagesLink';
-import { Button, Grid, Paper, Tabs, Transition, rem } from '@mantine/core';
+import { Button, Grid } from '@mantine/core';
 import DialogsForm from './Messages/DialogsForm';
 import { notifications } from '@mantine/notifications';
-import { IconBrandXbox, IconMessageCircle, IconPhoto, IconSettings } from '@tabler/icons-react';
+import { IconBrandXbox } from '@tabler/icons-react';
 import { achievementSound, useAppDispatch, useAppSelector } from '@/hoc/hooks';
 import { dialogsSlice } from '@/redux/dialogsReducer';
 import { useState } from 'react';
@@ -58,15 +58,6 @@ const Dialogs = () => {
       setSuccess(true)
    }
 
-   const scaleY = {
-      in: { opacity: 1, transform: 'scaleY(1)' },
-      out: { opacity: 0, transform: 'scaleY(0)' },
-      common: { transformOrigin: 'top' },
-      transitionProperty: 'transform, opacity',
-   };
-
-   const [opened, setOpened] = useState(false)
-
    return (
       <>
          <div className='col2-app'>
@@ -75,34 +66,10 @@ const Dialogs = () => {
             <Grid grow>
                <Grid.Col span={5} className={s.border}><b>Имена</b></Grid.Col>
                <Grid.Col span={7} className={s.border}><b>Сообщения</b></Grid.Col>
-               <Grid.Col span={5} className={s.border}></Grid.Col>
-               <Grid.Col span={7} className={s.border}>
-
-               </Grid.Col>
+               <Grid.Col span={5} className={s.border}>{dialogsElements}</Grid.Col>
+               <Grid.Col span={7} className={s.border}>{messagesElements}</Grid.Col>
             </Grid>
-            <Button onClick={() => setOpened(true)}>Open dropdown</Button>
-            <Transition mounted={opened} transition={scaleY} duration={500} timingFunction="ease">
-               {(styles) => (
-                  <Paper
-                     shadow="md"
-                     style={{ ...styles, height: rem(120) }}
-                  >
-                     Dropdown
-                  </Paper>
-               )}
-            </Transition>
-
             <div style={{ marginBottom: 20 }} />
-
-            <Tabs color="lime" radius="xs" orientation="vertical" defaultValue="gallery">
-               <Tabs.List>
-                  <Tabs.Tab value="gallery" leftSection={<IconPhoto size="0.8rem" />}>{dialogsElements}</Tabs.Tab>
-                  <Tabs.Tab value="messages" leftSection={<IconMessageCircle size="0.8rem" />}>                     {messagesElements}
-                  </Tabs.Tab>
-                  <Tabs.Tab value="settings" leftSection={<IconSettings size="0.8rem" />}>Settings</Tabs.Tab>
-               </Tabs.List>
-            </Tabs>
-
             <DialogsForm addNewMessage={addNewMessage} />
          </div>
       </>
