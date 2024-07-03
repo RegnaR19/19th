@@ -11,17 +11,12 @@ type Props = {
 const Paginator: React.FC<Props> = (props) => {
 
    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-
+   
    return (
       <>
-         <Pagination.Root total={pagesCount} value={props.currentPage} onChange={props.onPageChanged} styles={(theme) => ({
-            control: {
-               '&[data-active]': {
-                  backgroundImage: theme.fn.gradient({ from: '#0c8599', to: '91c800' }),
-               },
-            },
-         })}>
-            <Group spacing={5}>
+         <Pagination.Root total={pagesCount} value={props.currentPage} 
+         onChange={props.onPageChanged} style={{ backgroundColor: 'var(--mantine-color-red-5)' }}>
+            <Group fw={5}>
                <Pagination.First />
                <Pagination.Previous />
                <Pagination.Items />

@@ -96,10 +96,10 @@ const Dialogs = () => {
 
             <Tabs color="lime" radius="xs" orientation="vertical" defaultValue="gallery">
                <Tabs.List>
-                  <Tabs.Tab value="gallery" icon={<IconPhoto size="0.8rem" />}>{dialogsElements}</Tabs.Tab>
-                  <Tabs.Tab value="messages" icon={<IconMessageCircle size="0.8rem" />}>                     {messagesElements}
+                  <Tabs.Tab value="gallery" leftSection={<IconPhoto size="0.8rem" />}>{dialogsElements}</Tabs.Tab>
+                  <Tabs.Tab value="messages" leftSection={<IconMessageCircle size="0.8rem" />}>                     {messagesElements}
                   </Tabs.Tab>
-                  <Tabs.Tab value="settings" icon={<IconSettings size="0.8rem" />}>Settings</Tabs.Tab>
+                  <Tabs.Tab value="settings" leftSection={<IconSettings size="0.8rem" />}>Settings</Tabs.Tab>
                </Tabs.List>
             </Tabs>
 

@@ -17,11 +17,11 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
             display: 'block',
             width: '100%',
             padding: theme.spacing.md,
-            color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+            color: theme.primaryColor === 'dark' ? theme.colors.dark[0] : theme.black,
 
             '&:hover': {
                backgroundColor:
-                  theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+                  theme.primaryColor === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
             },
          })}
          {...others}
@@ -30,7 +30,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
             <Avatar src={image} radius="xl" />
 
             <div style={{ flex: 1 }}>
-               <Text size="sm" weight={500}>
+               <Text size="sm" fw={500}>
                   {name}
                </Text>
 
@@ -47,7 +47,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
 
 const AccountMenu = (props: any) => {
    return (
-      <Group position="center">
+      <Group justify="center">
          <Menu withArrow>
             <Menu.Target>
                <UserButton

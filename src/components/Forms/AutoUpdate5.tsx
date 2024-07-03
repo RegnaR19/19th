@@ -50,7 +50,7 @@ const AutoUpdate5 = () => {
                 <Indent10 />
             </Modal>
             <Indent10 />
-            <Group position="center">
+            <Group justify="center">
                 <Button onClick={() => setOpened(true)} onClickCapture={successForm}
                     variant="gradient" gradient={{ from: '#3f51b5', to: '#2236a4', deg: 45 }}>
                     ✅ 1.0.5</Button>

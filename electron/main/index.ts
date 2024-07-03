@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { app, BrowserWindow, shell, ipcMain, Tray, Menu } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -8,16 +8,6 @@ import { update } from './update'
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// The built directory structure
-//
-// ├─┬ dist-electron
-// │ ├─┬ main
-// │ │ └── index.js    > Electron-Main
-// │ └─┬ preload
-// │   └── index.mjs   > Preload-Scripts
-// ├─┬ dist
-// │ └── index.html    > Electron-Renderer
-//
 process.env.APP_ROOT = path.join(__dirname, '../..')
 
 export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
@@ -39,16 +29,26 @@ if (!app.requestSingleInstanceLock()) {
   process.exit(0)
 }
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'false'
+
 let win: BrowserWindow | null = null
 const preload = path.join(__dirname, '../preload/index.mjs')
 const indexHtml = path.join(RENDERER_DIST, 'index.html')
+let tray
 
 async function createWindow() {
   win = new BrowserWindow({
     title: 'Main window',
+    autoHideMenuBar: true,
     icon: path.join(process.env.VITE_PUBLIC, 'favicon.ico'),
+    width: 1280,
+    height: 720,
+    center: true,
     webPreferences: {
       preload,
+      nodeIntegration: true,
+      contextIsolation: true,
+      webSecurity: false
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
       // nodeIntegration: true,
 
@@ -61,7 +61,7 @@ async function createWindow() {
   if (VITE_DEV_SERVER_URL) { // #298
     win.loadURL(VITE_DEV_SERVER_URL)
     // Open devTool if the app is not packaged
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
   } else {
     win.loadFile(indexHtml)
   }
@@ -81,7 +81,34 @@ async function createWindow() {
   update(win)
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  createWindow()
+
+  tray = new Tray('./src/assets/icon.ico')
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Показать программу', click: function () {
+        win.show()
+        win.focus()
+      }
+    }
+    ,
+    {
+      label: 'Скрыть программу', click: function () {
+        win.hide();
+      }
+    },
+    {
+      label: 'Выход', click: function () {
+        win.destroy();
+        app.quit();
+      }
+    }
+  ])
+  tray.setToolTip('Title получается.')
+  tray.setContextMenu(contextMenu)
+
+})
 
 app.on('window-all-closed', () => {
   win = null

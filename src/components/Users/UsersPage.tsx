@@ -21,11 +21,11 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
             display: 'block',
             width: '100%',
             padding: theme.spacing.md,
-            color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+            color: theme.primaryColor === 'dark' ? theme.colors.dark[0] : theme.black,
 
             '&:hover': {
                backgroundColor:
-                  theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
+                  theme.primaryColor === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
             },
          })}
          {...others}
@@ -34,10 +34,10 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
             <Avatar src={img} radius="xl" size={20} />
 
             <div style={{ flex: 1 }}>
-               <Text size="sm" weight={500}>
+               <Text size="sm" fw={500}>
                   {name}
                </Text>
-               <Text size="sm" weight={200}>
+               <Text size="sm" fw={200}>
                   ID: {id2}
                </Text>
 
@@ -61,7 +61,7 @@ type Props = {
 const UsersPage: React.FC<Props> = ({ id2, name, status, img }) => {
    return (
       <NavLink to={'/profile/' + id2} className={s.link}>
-         <Group position="center">
+         <Group justify="center">
             <Menu withArrow>
                <Menu.Target>
                   <UserButton

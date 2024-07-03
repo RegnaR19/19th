@@ -2,7 +2,7 @@
 import Indent10 from "@/components/Forms/Indent";
 import { Accordion, Button, Grid, Input, Textarea } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { IconBrandXbox } from "@tabler/icons-react";
+import { IconAlignBoxLeftBottomFilled, IconBrandXbox } from "@tabler/icons-react";
 import { Form, Field } from 'react-final-form'
 import s from "../../Common/FormsControls.module.css"
 import UploadPhotoPost from "./UploadPhotoPost";
@@ -64,7 +64,10 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
       <>
          <Accordion defaultValue="customization">
             <Accordion.Item value="flexibility">
-               <Accordion.Control><span className='big-title'>Новая запись</span></Accordion.Control>
+               <Accordion.Control>
+                  <IconAlignBoxLeftBottomFilled />&nbsp;&nbsp;
+                  <span className='big-title'>Новая запись</span>
+               </Accordion.Control>
                <Accordion.Panel>
 
                   <Form onSubmit={addPost}

@@ -34,7 +34,7 @@ const AutoUpdate3 = () => {
                 <p><Image src={tobe} maw={240} radius="md" /></p>
             </Modal>
             <Indent10 />
-            <Group position="center">
+            <Group justify="center">
                 <Button onClick={() => setOpened(true)}
                     variant="gradient" gradient={{ from: 'teal', to: 'magenta', deg: 60 }}>
                     ✅ 1.0.3</Button>

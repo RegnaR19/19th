@@ -42,7 +42,7 @@ const UploadPhotoPost = () => {
 
   return (
     <>
-      <FileInput placeholder="Прикрепить изображение" icon={<IconUpload size={rem(14)} />} onClick={() => { addNewForAttach() }} />
+      <FileInput placeholder="Прикрепить изображение" leftSection={<IconUpload size={rem(14)} />} onClick={() => { addNewForAttach() }} />
     </>
   )
 }

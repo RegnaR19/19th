@@ -18,7 +18,7 @@ const DrawerOpen2 = () => {
             <Image src={rick} />
          </Drawer>
 
-         <Group position="center">
+         <Group justify="center">
             <Button onClick={() => setOpened(true)}
                variant="gradient" gradient={{ from: 'gray', to: 'black' }}>
                #2</Button>

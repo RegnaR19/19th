@@ -20,12 +20,12 @@ const HeaderTwo = ({ login, isAuth }) => {
       <>
          <Grid justify="center" align="center" className={s.header}>
             <Grid.Col span="content">
-               <div className="big-title-program">Bund</div>
+               <div className="big-title-program">19th</div>
             </Grid.Col>
          </Grid>
          <Grid className={s.header}>
             <Grid.Col span="content">
-               <Group position="right">
+               <Group justify="right">
                   {Auth()}
                </Group>
             </Grid.Col>

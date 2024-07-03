@@ -7,6 +7,7 @@ import AutoUpdate2 from '../Forms/AutoUpdate2';
 import AutoUpdate5 from '../Forms/AutoUpdate5';
 import AutoUpdate6 from '../Forms/AutoUpdate6';
 import AutoUpdate7 from '../Forms/AutoUpdate7';
+import ChangeColor from '../Common/ChangeColor';
 
 const Sidebar = () => {
 
@@ -15,6 +16,7 @@ const Sidebar = () => {
          <Grid justify="center" align="center">
             <Grid.Col>
                <center><div className='big-title'>История</div>
+                  <ChangeColor />
                   <AutoUpdate7 />
                   <Accordion defaultValue="customization">
                      <Accordion.Item value="flexibility">

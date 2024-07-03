@@ -31,7 +31,7 @@ const AutoUpdate = () => {
                 <img src={rick} height={300} />
             </Modal>
             <Indent10 />
-            <Group position="center">
+            <Group justify="center">
                 <Button onClick={() => setOpened(true)}
                     variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }}>
                     ✅ 1.0.2</Button>

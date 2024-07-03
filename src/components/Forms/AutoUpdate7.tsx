@@ -61,7 +61,7 @@ const AutoUpdate7 = () => {
                 <Indent10 />
             </Modal>
             <Indent10 />
-            <Group position="center">
+            <Group justify="center">
                 <Button onClick={() => setOpened(true)} onClickCapture={addStatus}
                     variant="gradient" gradient={{ from: '#1c7ed6', to: 'lime', deg: 45 }}>
                     ✅ Версия 1.0.7</Button>

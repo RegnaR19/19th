@@ -14,8 +14,8 @@ type Props = {
 const Cards: React.FC<Props> = ({ id, header, message, likescount, img }) => {
    return (
       <><Card shadow="sm" p="lg" radius="md" withBorder className={s.item}>
-         <Group position="apart" mb="xs">
-            <Text weight={500} size="xl">{header}</Text>
+         <Group justify="apart" mb="xs">
+            <Text fw={500} size="xl">{header}</Text>
             <Grid justify="center" align="center">
                <Grid.Col span="auto">
                   <Button variant="light" color="blue" fullWidth mt="md" radius="md">

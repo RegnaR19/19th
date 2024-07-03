@@ -53,53 +53,53 @@ const Navigation = (props: any) => {
          <div className={s.link}>
             <NavLink to="profile">
                <NavMantine
-                  icon={<IconAddressBook size={18} stroke={1.5} />}
+                  leftSection={<IconAddressBook size={18} stroke={1.5} />}
                   description='Стена' label="Профиль" />
             </NavLink>
             <NavLink to="messages">
                <NavMantine
-                  icon={<IconAt size={18} stroke={1.5} />}
+                  leftSection={<IconAt size={18} stroke={1.5} />}
                   description='' label="Сообщения" />
             </NavLink>
             <NavLink to="news">
                <NavMantine
-                  icon={<IconNews size={18} stroke={1.5} />}
+                  leftSection={<IconNews size={18} stroke={1.5} />}
                   description='' label="Новости" />
             </NavLink>
             <NavLink to="users">
                <NavMantine
-                  icon={<IconUsers size={18} stroke={1.5} />}
+                  leftSection={<IconUsers size={18} stroke={1.5} />}
                   description='' label="Пользователи" />
             </NavLink>
             <NavLink to="music">
                <NavMantine
-                  icon={<IconActivity size={18} stroke={1.5} />}
+                  leftSection={<IconActivity size={18} stroke={1.5} />}
                   description='' label="Музыка" />
             </NavLink>
             <NavLink to="video">
                <NavMantine
-                  icon={<IconBadge4k size={18} stroke={1.5} />}
+                  rightSection={<IconBadge4k size={18} stroke={1.5} />}
                   description='' label="Видео" />
             </NavLink>
             <NavLink to="settings">
                <NavMantine
-                  icon={<IconSettings size={18} stroke={1.5} />}
+                  rightSection={<IconSettings size={18} stroke={1.5} />}
                   description='' label="Настройки" />
             </NavLink>
             <NavLink to="test">
                <NavMantine
-                  icon={<IconCircleOff size={18} stroke={1.5} />}
+                  rightSection={<IconCircleOff size={18} stroke={1.5} />}
                   description='Эксперименты' label="Тестовая" />
             </NavLink>
 
             {props.isAuth ? <NavLink to='' onClick={() => { successExitYo() }} onClickCapture={props.logout}>
                <NavMantine
-                  icon={<IconLogout size={18} stroke={1.5} />}
+                  rightSection={<IconLogout size={18} stroke={1.5} />}
                   description='' label="Выход" />
             </NavLink> :
                <NavLink to="login">
                   <NavMantine
-                     icon={<IconCircleOff size={18} stroke={1.5} />}
+                     rightSection={<IconCircleOff size={18} stroke={1.5} />}
                      description='' label="Вход" />
                </NavLink>
             }
