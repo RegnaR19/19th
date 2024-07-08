@@ -9,9 +9,9 @@ const HeaderTwoContainer = (props: any) => {
    return (
       <>
          <HeaderTwo {...props} />
-         <Notification color="teal" withCloseButton={false}>
+         {/* <Notification color="teal" withCloseButton={false}>
             <pre>{JSON.stringify(props.isAuth, null, 2)}</pre>
-         </Notification>
+         </Notification> */}
       </>
    )
 }
