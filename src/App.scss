@@ -1,12 +1,20 @@
 /* стили */
-body {
-   background-image: url(./assets/back1.jpg) !important;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-}
+:root {
+   color-scheme: var(--mantine-color-scheme);
+ }
+ 
+ body {
+   font-family: var(--mantine-font-family);
+   font-size: var(--mantine-font-size-md);
+   line-height: var(--mantine-line-height);
+   background-color: var(--mantine-color-body);
+   color: var(--mantine-color-text);
+ 
+   -webkit-font-smoothing: var(--mantine-webkit-font-smoothing);
+   -moz-osx-font-smoothing: var(--mantine-moz-font-smoothing);
+ }
 
 .col2-app {
-   background-color: #303841;
    width: 650px;
    margin: 0 210px 15px 210px;
    padding: 20px;

@@ -9,23 +9,24 @@ import VideoPage from "./components/Video/VideoPage";
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'));
 const LoginContainer = lazy(() => import('./components/Profile/LoginContainer'));
 const MainProfile = lazy(() => import('./components/Profile/MainProfile'));
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, createTheme, rem } from '@mantine/core';
 import {
    emotionTransform,
    MantineEmotionProvider,
 } from '@mantine/emotion';
 import { Notifications, notifications } from "@mantine/notifications";
+import '@mantine/notifications/styles.css';
 import '@mantine/core/styles.css';
 import s from "./App.module.css"
 import './App.scss'
-import HeaderTwoContainer from "./components/Navbar/HeaderTwoContainer";
-import Sidebar2 from "./components/Navbar/Sidebar2";
+import AchievementSidebar from "./components/Navbar/AchievementSidebar";
 import NavigationContainer from "./components/Navbar/NavigationContainer";
 import SidebarContainer from "./components/Navbar/SidebarContainer";
-import { useAppDispatch } from './hoc/hooks';
+import { startUp, useAppDispatch } from './hoc/hooks';
 import { initApp } from './redux/appReducer';
 import Dialogs from './components/Dialogs/Dialogs';
 import { IconBrandXbox } from '@tabler/icons-react';
+import HeaderContainer from "./components/Navbar/HeaderContainer";
 // import UpdateElectron from '@/components/update'
 
 const App = () => {
@@ -39,7 +40,6 @@ const App = () => {
          message: 'Сможешь ли набрать 1000G?',
          color: 'green',
          icon: <IconBrandXbox />,
-         className: 'my-notification-class',
          loading: false,
          styles: (theme) => ({
             root: {
@@ -57,17 +57,61 @@ const App = () => {
       // startUp()
    }, [successForm])
 
+   const theme = createTheme({
+      colors: {
+         // Add your color
+         deepBlue: [
+            '#eef3ff',
+            '#dce4f5',
+            '#b9c7e2',
+            '#94a8d0',
+            '#748dc1',
+            '#5f7cb8',
+            '#5474b4',
+            '#44639f',
+            '#39588f',
+            '#2d4b81',
+         ],
+         // or replace default theme color
+         blue: [
+            '#eef3ff',
+            '#dee2f2',
+            '#bdc2de',
+            '#98a0ca',
+            '#7a84ba',
+            '#6672b0',
+            '#5c68ac',
+            '#4c5897',
+            '#424e88',
+            '#364379',
+         ],
+      },
+
+      shadows: {
+         md: '1px 1px 3px rgba(0, 0, 0, .25)',
+         xl: '5px 5px 3px rgba(0, 0, 0, .25)',
+      },
+
+      headings: {
+         fontFamily: 'Roboto, sans-serif',
+         sizes: {
+            h1: { fontSize: rem(36) },
+         },
+      },
+   });
+
+
    return (
-      <MantineProvider defaultColorScheme="dark" stylesTransform={emotionTransform}>
+      <MantineProvider theme={theme}>
          <MantineEmotionProvider>
-            <Notifications position="bottom-center" containerWidth={350} />
+            <Notifications position="bottom-center" />
             <header className={s.layout2}>
-               <HeaderTwoContainer />
+               <HeaderContainer />
             </header>
             <div className={s.layout}>
                <nav className={s.col1}><NavigationContainer /></nav>
                <aside className={s.col3}>
-                  <div className={s.sidebar}><Sidebar2 /></div>
+                  <div className={s.sidebar}><AchievementSidebar /></div>
                   <div className={s.sidebar}><SidebarContainer /></div>
                </aside>
                <main>

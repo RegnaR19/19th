@@ -4,7 +4,7 @@ import { Grid, Image, Modal } from '@mantine/core'
 import gif from '../../assets/bund.jpg'
 import { useEffect, useState } from 'react';
 
-const Sidebar2 = () => {
+const AchievementSidebar = () => {
 
    const [opened, setOpened] = useState(false);
 
@@ -50,4 +50,4 @@ const Sidebar2 = () => {
    );
 }
 
-export default Sidebar2
+export default AchievementSidebar

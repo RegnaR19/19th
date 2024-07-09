@@ -78,28 +78,28 @@ const Navigation = (props: any) => {
             </NavLink>
             <NavLink to="video">
                <NavMantine
-                  rightSection={<IconBadge4k size={18} stroke={1.5} />}
+                  leftSection={<IconBadge4k size={18} stroke={1.5} />}
                   description='' label="Видео" component='span' />
             </NavLink>
             <NavLink to="settings">
                <NavMantine
-                  rightSection={<IconSettings size={18} stroke={1.5} />}
+                  leftSection={<IconSettings size={18} stroke={1.5} />}
                   description='' label="Настройки" component='span' />
             </NavLink>
             <NavLink to="test">
                <NavMantine
-                  rightSection={<IconCircleOff size={18} stroke={1.5} />}
+                  leftSection={<IconCircleOff size={18} stroke={1.5} />}
                   description='Эксперименты' label="Тестовая" component='span' />
             </NavLink>
 
             {props.isAuth ? <NavLink to='' onClick={() => { successExitYo() }} onClickCapture={props.logout}>
                <NavMantine
-                  rightSection={<IconLogout size={18} stroke={1.5} />}
+                  leftSection={<IconLogout size={18} stroke={1.5} />}
                   description='' label="Выход" component='span' />
             </NavLink> :
                <NavLink to="login">
                   <NavMantine
-                     rightSection={<IconCircleOff size={18} stroke={1.5} />}
+                     leftSection={<IconCircleOff size={18} stroke={1.5} />}
                      description='' label="Вход" component='span' />
                </NavLink>
             }

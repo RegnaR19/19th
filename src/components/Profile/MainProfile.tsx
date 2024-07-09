@@ -10,7 +10,7 @@ import UploadAvatar from './common/UploadAvatar';
 import { useAppDispatch, useAppSelector } from '@/hoc/hooks';
 import { getUserProfile, getUserStatus } from '@/redux/profileReducer';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const MainProfile = () => {
@@ -37,6 +37,12 @@ const MainProfile = () => {
       }
    }, [userId, authUserId])
 
+   const [data, setData] = useState(null)
+   useEffect(() => {
+      fetch('/back')
+      .then(response => response.json())
+      .then(response => setData(response.message))
+   }, [])
 
    return (
       <>
@@ -50,6 +56,11 @@ const MainProfile = () => {
                   {!userId && <ProfileStatus />}
                   <Indent10 />
                   <ProfileInfo profile={profile} auth={auth} />
+                  
+                  {
+                     !data ? 'Loading...' : data
+                  }
+
                </Grid.Col>
                {!userId &&
                   <Grid.Col span={'content'}>  <UploadAvatar /> </Grid.Col>

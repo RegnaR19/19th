@@ -1,5 +1,5 @@
 // страница footer
-import { Grid, Col } from '@mantine/core';
+import { Grid } from '@mantine/core';
 
 const FooterOne = () => {
    return (

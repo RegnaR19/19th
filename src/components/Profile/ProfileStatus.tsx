@@ -25,17 +25,8 @@ const ProfileStatus = () => {
          message: `100G | Статус изменен: ${status}`,
          color: 'green',
          icon: <IconBrandXbox />,
-         className: 'my-notification-class',
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      })
+         loading: false
+   })
    }
 
    const [springs] = useSpring(() => ({

@@ -66,10 +66,9 @@ export default defineConfig(({ command }) => {
     ],
     server: {
       proxy: {
-        "/api": {
-          target: "https://social-network.samuraijs.com/api/1.0/",
+        "/back": {
+          target: "http://localhost:3000/",
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ""),
         }
       },
       clearScreen: false,
