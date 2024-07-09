@@ -16,7 +16,7 @@ interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 
 const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
    ({ img, name, icon, id2, status, follow, ...others }: UserButtonProps, ref) => (
-      <UnstyledButton
+      <UnstyledButton 
          ref={ref} 
          style={{
             padding: 'var(--mantine-spacing-md)',
