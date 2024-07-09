@@ -32,7 +32,7 @@ const AchievementSidebar = () => {
             <Grid.Col>
                <center><div className='big-text'>Система достижений</div>
                   <div className='achievement'>
-                     <p>{total} G</p>
+                     {total} G
                   </div>
                </center>
             </Grid.Col>

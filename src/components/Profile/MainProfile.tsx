@@ -16,7 +16,6 @@ import { useEffect, useState } from 'react';
 const MainProfile = () => {
 
    const auth = useAppSelector(state => state.auth)
-   const profile = useAppSelector(state => state.profilePage.profile)
    const { userId } = useParams()
    const authUserId = auth.userId
    const dispatch = useAppDispatch()
@@ -37,12 +36,12 @@ const MainProfile = () => {
       }
    }, [userId, authUserId])
 
-   const [data, setData] = useState(null)
-   useEffect(() => {
-      fetch('/back')
-      .then(response => response.json())
-      .then(response => setData(response.message))
-   }, [])
+   // const [data, setData] = useState(null)
+   // useEffect(() => {
+   //    fetch('/back')
+   //    .then(response => response.json())
+   //    .then(response => setData(response.message))
+   // }, [])
 
    return (
       <>
@@ -55,11 +54,11 @@ const MainProfile = () => {
                   }
                   {!userId && <ProfileStatus />}
                   <Indent10 />
-                  <ProfileInfo profile={profile} auth={auth} />
-                  
-                  {
+                  <ProfileInfo />
+
+                  {/* {
                      !data ? 'Loading...' : data
-                  }
+                  } */}
 
                </Grid.Col>
                {!userId &&
@@ -79,4 +78,4 @@ const MainProfile = () => {
    );
 }
 
-export default MainProfile;
+export default MainProfile

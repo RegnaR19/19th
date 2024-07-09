@@ -19,14 +19,14 @@ import '@mantine/notifications/styles.css';
 import '@mantine/core/styles.css';
 import s from "./App.module.css"
 import './App.scss'
-import AchievementSidebar from "./components/Navbar/AchievementSidebar";
-import NavigationContainer from "./components/Navbar/NavigationContainer";
-import SidebarContainer from "./components/Navbar/SidebarContainer";
+import AchievementSidebar from "./components/Navbar/AchievementSidebar"
 import { startUp, useAppDispatch } from './hoc/hooks';
 import { initApp } from './redux/appReducer';
 import Dialogs from './components/Dialogs/Dialogs';
-import { IconBrandXbox } from '@tabler/icons-react';
-import HeaderContainer from "./components/Navbar/HeaderContainer";
+import { IconBrandXbox } from '@tabler/icons-react'
+import Header from "./components/Navbar/Header";
+import Navigation from "./components/Navbar/Navigation";
+import Sidebar from "./components/Navbar/Sidebar";
 // import UpdateElectron from '@/components/update'
 
 const App = () => {
@@ -106,13 +106,13 @@ const App = () => {
          <MantineEmotionProvider>
             <Notifications position="bottom-center" />
             <header className={s.layout2}>
-               <HeaderContainer />
+               <Header />
             </header>
             <div className={s.layout}>
-               <nav className={s.col1}><NavigationContainer /></nav>
+               <nav className={s.col1}><Navigation /></nav>
                <aside className={s.col3}>
                   <div className={s.sidebar}><AchievementSidebar /></div>
-                  <div className={s.sidebar}><SidebarContainer /></div>
+                  <div className={s.sidebar}><Sidebar /></div>
                </aside>
                <main>
                   <Routes>

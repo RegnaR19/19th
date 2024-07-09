@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import { Group, Avatar, Text, Menu, UnstyledButton } from '@mantine/core';
 import { NavLink } from 'react-router-dom';
 import s from './Users.module.css'
+import { IconChevronRight } from '@tabler/icons-react';
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
    img: string;
@@ -16,36 +17,31 @@ interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
    ({ img, name, icon, id2, status, follow, ...others }: UserButtonProps, ref) => (
       <UnstyledButton
-         ref={ref}
-         sx={(theme) => ({
-            display: 'block',
-            width: '100%',
-            padding: theme.spacing.md,
-            color: theme.primaryColor === 'dark' ? theme.colors.dark[0] : theme.black,
-
-            '&:hover': {
-               backgroundColor:
-                  theme.primaryColor === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
-            },
-         })}
+         ref={ref} 
+         style={{
+            padding: 'var(--mantine-spacing-md)',
+            color: 'var(--mantine-color-text)',
+            borderRadius: 'var(--mantine-radius-sm)',
+         }}
          {...others}
       >
          <Group>
-            <Avatar src={img} radius="xl" size={20} />
+            <Avatar src={img} radius="xl" />
 
             <div style={{ flex: 1 }}>
-               <Text size="sm" fw={500}>
+               <Text size="lg" fw={500}>
                   {name}
                </Text>
-               <Text size="sm" fw={200}>
+               <Text size="lg" fw={200}>
                   ID: {id2}
                </Text>
 
-               <Text color="dimmed" size="xs">
+               <Text c="dimmed" size="xs">
                   {status}
                </Text>
 
             </div>
+            {icon || <IconChevronRight size="1rem" />}
          </Group>
       </UnstyledButton>
    )
@@ -61,7 +57,7 @@ type Props = {
 const UsersPage: React.FC<Props> = ({ id2, name, status, img }) => {
    return (
       <NavLink to={'/profile/' + id2} className={s.link}>
-         <Group justify="center">
+         <Group>
             <Menu withArrow>
                <Menu.Target>
                   <UserButton

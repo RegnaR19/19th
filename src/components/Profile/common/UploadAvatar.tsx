@@ -6,11 +6,8 @@ import { notifications } from '@mantine/notifications'
 import { IconBrandXbox, IconUpload } from '@tabler/icons-react'
 import { FC, useState } from 'react'
 
-interface Props extends React.ComponentPropsWithoutRef<"input"> {
-   name: string;
- }
 
-const UploadAvatar: FC<Props> = () => {
+const UploadAvatar = () => {
 
    const [success, setSuccess] = useState(false)
    const dispatch = useAppDispatch()

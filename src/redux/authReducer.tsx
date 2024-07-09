@@ -24,7 +24,7 @@ export const authSlice = createSlice({
    }
 })
 
-export const setUserData = (userId: number, email: string, login: string, isAuth: boolean) => {
+export const setUserData = (userId: number | null, email: string | null, login: string | null, isAuth: boolean) => {
    return {
       type: "auth/setUserDataPayload",
       payload: { userId, email, login, isAuth }

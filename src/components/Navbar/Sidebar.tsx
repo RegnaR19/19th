@@ -16,7 +16,6 @@ const Sidebar = () => {
          <Grid justify="center" align="center">
             <Grid.Col>
                <center><div className='big-title'>История</div>
-                  <ChangeColor />
                   <AutoUpdate7 />
                   <Accordion defaultValue="customization">
                      <Accordion.Item value="flexibility">

@@ -2,13 +2,18 @@
 import { Grid, Group } from '@mantine/core';
 import s from './Header.module.css';
 import ColorChange from '../Common/ChangeColor';
+import { useAppSelector } from '@/hoc/hooks';
+import { useParams } from 'react-router-dom';
 
 
 
-const Header = ({ profileSlice, isAuth }) => {
+const Header = () => {
 
-   let ID = profile.userId
-   let login = profile.fullName
+   // isAuth: state.auth.isAuth
+   // login: state.auth.login
+
+   const isAuth = useAppSelector(state => state.auth.isAuth)
+   const login = useAppSelector(state => state.auth.login)
 
    const Auth = () => {
       if (isAuth) {

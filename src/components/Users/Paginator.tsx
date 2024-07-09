@@ -15,7 +15,7 @@ const Paginator: React.FC<Props> = (props) => {
    return (
       <>
          <Pagination.Root total={pagesCount} value={props.currentPage} 
-         onChange={props.onPageChanged} style={{ backgroundColor: 'var(--mantine-color-black-5)' }}>
+         onChange={props.onPageChanged} autoContrast color="lime.4">
             <Group fw={5}>
                <Pagination.First />
                <Pagination.Previous />

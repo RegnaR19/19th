@@ -8,14 +8,16 @@ import {
 import s from './Navigation.module.css'
 import { notifications } from '@mantine/notifications';
 import { IconBrandXbox } from '@tabler/icons-react';
-import { achievementSound, useAppDispatch } from '@/hoc/hooks';
-import { useState } from 'react';
+import { achievementSound, useAppDispatch, useAppSelector } from '@/hoc/hooks';
+import { useEffect, useState } from 'react';
 import { logoutAchievementAction } from '@/redux/achievementReducer';
+import { logout } from '@/redux/authReducer';
 
 const Navigation = (props: any) => {
 
    const dispatch = useAppDispatch()
    const [success, setSuccess] = useState(false)
+   const isAuth = useAppSelector(state => state.auth.isAuth)
 
    const successExit = () => {
       return notifications.show({
@@ -46,6 +48,10 @@ const Navigation = (props: any) => {
          successExit()
       }
       setSuccess(true)
+   }
+
+   function logout1() {
+      dispatch(logout())
    }
 
    return (
@@ -92,7 +98,7 @@ const Navigation = (props: any) => {
                   description='Эксперименты' label="Тестовая" component='span' />
             </NavLink>
 
-            {props.isAuth ? <NavLink to='' onClick={() => { successExitYo() }} onClickCapture={props.logout}>
+            {isAuth ? <NavLink to='' onClick={() => { successExitYo() }} onClickCapture={logout1}>
                <NavMantine
                   leftSection={<IconLogout size={18} stroke={1.5} />}
                   description='' label="Выход" component='span' />
@@ -108,4 +114,4 @@ const Navigation = (props: any) => {
    );
 }
 
-export default Navigation;
+export default Navigation
