@@ -9,7 +9,7 @@ const AvatarMain = () => {
 
    return (
       <>
-         <Avatar src={avatar} radius={'md'} color="indigo" className={s.avatar} />
+         <Avatar src={avatar} radius={'md'} className={s.avatar} />
       </>
    );
 }

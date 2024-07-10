@@ -1,12 +1,12 @@
+import { useAppSelector } from "@/hoc/hooks";
 import Cards from "./WallCards";
 import { useInView, useSpring, animated } from '@react-spring/web'
 
-type Props = {
-   dialogsPage: any
-}
 
-const PostElements: React.FC<Props> = ({ ...props }) => {
-
+const PostElements = () => {
+   
+   const dialogsPage = useAppSelector(state => state.profilePage)
+   
    const [ref, style] = useInView(
       () => ({
          from: {
@@ -24,7 +24,7 @@ const PostElements: React.FC<Props> = ({ ...props }) => {
    )
 
    let postElements =
-      [...props.dialogsPage.posts].reverse().map((p: any) =>
+      [...dialogsPage.posts].reverse().map((p: any) =>
          <Cards id={p.id} key={p.id} header={p.post} message={p.message}
             likescount={p.likescount} img={p.img} />)
 

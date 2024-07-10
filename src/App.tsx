@@ -6,8 +6,8 @@ import MusicPage from "./components/Music/MusicPage";
 import SettingsPage from "./components/Settings/SettingsPage";
 import TestPage from "./components/Settings/TestPage";
 import VideoPage from "./components/Video/VideoPage";
-const UsersContainer = lazy(() => import('./components/Users/UsersContainer'));
-const LoginContainer = lazy(() => import('./components/Profile/LoginContainer'));
+const Users = lazy(() => import('./components/Users/Users'));
+const Login = lazy(() => import('./components/Profile/Login'));
 const MainProfile = lazy(() => import('./components/Profile/MainProfile'));
 import { MantineProvider, createTheme, rem } from '@mantine/core';
 import {
@@ -26,7 +26,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import { IconBrandXbox } from '@tabler/icons-react'
 import Header from "./components/Navbar/Header";
 import Navigation from "./components/Navbar/Navigation";
-import Sidebar from "./components/Navbar/Sidebar";
+import ChangelogSidebar from "./components/Navbar/ChangelogSidebar";
 // import UpdateElectron from '@/components/update'
 
 const App = () => {
@@ -100,7 +100,6 @@ const App = () => {
       },
    });
 
-
    return (
       <MantineProvider theme={theme}>
          <MantineEmotionProvider>
@@ -112,7 +111,7 @@ const App = () => {
                <nav className={s.col1}><Navigation /></nav>
                <aside className={s.col3}>
                   <div className={s.sidebar}><AchievementSidebar /></div>
-                  <div className={s.sidebar}><Sidebar /></div>
+                  <div className={s.sidebar}><ChangelogSidebar /></div>
                </aside>
                <main>
                   <Routes>
@@ -134,7 +133,7 @@ const App = () => {
                      <Route path="messages" element={<Dialogs />} />
                      <Route path="users" element={
                         <Suspense fallback={' '}>
-                           <UsersContainer />
+                           <Users />
                         </Suspense>} />
                      <Route path="news" element={<NewsPage />} />
                      <Route path="music" element={<MusicPage />} />
@@ -143,7 +142,7 @@ const App = () => {
                      <Route path="video" element={<VideoPage />} />
                      <Route path="login" element={
                         <Suspense fallback={' '}>
-                           <LoginContainer />
+                           <Login />
                         </Suspense>} />
                   </Routes>
                </main>

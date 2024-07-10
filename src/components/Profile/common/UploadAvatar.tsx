@@ -1,7 +1,7 @@
 import { achievementSound, useAppDispatch } from '@/hoc/hooks'
 import { newPhotoAchievementAction } from '@/redux/achievementReducer'
 import { savePhoto } from '@/redux/profileReducer'
-import { FileInput, rem } from '@mantine/core'
+import { Button, FileButton, Text, rem } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
 import { IconBrandXbox, IconUpload } from '@tabler/icons-react'
 import { FC, useState } from 'react'
@@ -11,7 +11,7 @@ const UploadAvatar = () => {
 
    const [success, setSuccess] = useState(false)
    const dispatch = useAppDispatch()
-   const [value, setValue] = useState<File | null>(null);
+   const [file, setFile] = useState<File | null>(null)
 
    const successForm = () => {
       notifications.show({
@@ -52,7 +52,14 @@ const UploadAvatar = () => {
 
    return (
       <>
-         <FileInput value={value} placeholder="Загрузить новый аватар" leftSection={icon} onChange={onMainPhotoSelected} />
+         <FileButton onChange={onMainPhotoSelected} accept="image/png,image/jpeg">
+            {(props) => <Button {...props} leftSection={icon}>Загрузить аватар</Button>}
+         </FileButton>
+         {file && (
+            <Text size="sm" ta="center" mt="sm">
+               {onMainPhotoSelected.name}
+            </Text>
+         )}
       </>
    );
 }

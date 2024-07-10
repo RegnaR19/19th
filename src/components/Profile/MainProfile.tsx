@@ -2,8 +2,8 @@
 import ProfileInfo from './ProfileInfo';
 import Avatar from './common/Avatar';
 import { Grid } from '@mantine/core';
-import WritePostContainer from './Topic/WritePostContainer';
-import PostElementsContainer from './Topic/PostElementsContainer';
+import WritePost from './Topic/WritePost';
+import PostElements from './Topic/PostElements';
 import ProfileStatus from './ProfileStatus';
 import Indent10 from '../Forms/Indent';
 import UploadAvatar from './common/UploadAvatar';
@@ -67,11 +67,11 @@ const MainProfile = () => {
             </Grid>
          </div >
          <div className='col2-app'>
-            <WritePostContainer />
+            <WritePost />
          </div>
 
          <div className='col2-app'>
-            <PostElementsContainer />
+            <PostElements />
          </div>
 
       </>

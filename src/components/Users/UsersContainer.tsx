@@ -12,14 +12,7 @@ type Props = {
 
 const UsersContainer: React.FC<Props> = (props) => {
 
-   useEffect(() => {
-      props.getUsers(props.currentPage, props.pageSize)
-   }, [])
-
-
-   const onPageChanged = (pageNumber: number, setUsers: number) => {
-      props.getUsers(pageNumber, setUsers)
-   }
+   
 
    return <>
       <Users onPageChanged={onPageChanged} />

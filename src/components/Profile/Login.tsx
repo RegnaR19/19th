@@ -5,23 +5,44 @@ import { connect } from "react-redux";
 import { login } from "@/redux/authReducer";
 import { useEffect, useState } from "react";
 import s from "./../Common/FormsControls.module.css"
-import { successLogin } from "./LoginContainer";
 import { useNavigate } from "react-router-dom";
-import { achievementSound, useAppDispatch } from '@/hoc/hooks';
+import { achievementSound, useAppDispatch, useAppSelector } from '@/hoc/hooks';
 import { loginAchievementAction } from '@/redux/achievementReducer';
+import { notifications } from "@mantine/notifications";
+import { IconBrandXbox } from "@tabler/icons-react";
 
-type Props = {
-   isAuth: any
-}
 
-const Login: React.FC<Props> = (props: any) => {
+const Login = () => {
 
    type Employee = {
       email?: any
       password?: any
    }
 
+   const successLogin = () => {
+      notifications.show({
+         id: 'login',
+         withCloseButton: false,
+         autoClose: 5000,
+         title: "Достижение разблокировано",
+         message: '100G | Вы вошли в аккаунт',
+         color: 'green',
+         icon: <IconBrandXbox />,
+         className: 'my-notification-class',
+         loading: false,
+         styles: (theme) => ({
+            root: {
+               backgroundColor: theme.colors.gray[1],
+               '&::before': { backgroundColor: theme.black },
+            },
+            title: { color: theme.black },
+            description: { color: theme.black },
+         }),
+      })
+   }
+   
    const dispatch = useAppDispatch()
+   const isAuth = useAppSelector(state => state.auth.isAuth)
    const [success, setSuccess] = useState(false)
 
    const addNewForExit = () => {
@@ -33,22 +54,22 @@ const Login: React.FC<Props> = (props: any) => {
    }
 
    const onSubmit = (formData: any) => {
-      props.login(formData.email, formData.password, formData.rememberMe)
+      dispatch(login(formData.email, formData.password, formData.rememberMe))
    }
 
    const navigate = useNavigate();
 
    useEffect(() => {
-      { props.isAuth ? navigate("/profile") : '' }
-   }, [props.isAuth])
+      { isAuth ? navigate("/profile") : '' }
+   }, [isAuth])
 
    useEffect(() => {
-      { props.isAuth ? successLogin() : '' }
-   }, [props.isAuth])
+      { isAuth ? successLogin() : '' }
+   }, [isAuth])
 
    useEffect(() => {
-      { props.isAuth ? addNewForExit() : '' }
-   }, [props.isAuth])
+      { isAuth ? addNewForExit() : '' }
+   }, [isAuth])
 
    return (
       <>

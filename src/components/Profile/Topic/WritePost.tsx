@@ -9,19 +9,14 @@ import UploadPhotoPost from "./UploadPhotoPost";
 import { achievementSound, useAppDispatch } from '@/hoc/hooks';
 import { postAchievementAction } from '@/redux/achievementReducer';
 import { useState } from 'react';
+import { addPostCreator, addPost } from "@/redux/profileReducer";
 
-type Props = {
-   addPost: any,
-}
-
-const WritePost: React.FC<Props> = ({ ...props }) => {
+const WritePost = () => {
 
    const dispatch = useAppDispatch()
-
    const addAchievement = () => {
       dispatch(postAchievementAction())
    }
-
    const [success, setSuccess] = useState(false)
 
    const successForm = () => {
@@ -45,8 +40,9 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
       })
    }
 
-   const addPost = (values: any) => {
-      props.addPost(values.newPostText, values.title)
+   const add = (values: any) => {
+      dispatch(addPost(values.title))
+      dispatch(addPostCreator(values.newPostText, values.title))
       addAchievement()
       if (!success) {
          successForm()
@@ -70,7 +66,7 @@ const WritePost: React.FC<Props> = ({ ...props }) => {
                </Accordion.Control>
                <Accordion.Panel>
 
-                  <Form onSubmit={addPost}
+                  <Form onSubmit={add}
                      validate={(values: any) => {
                         const errors: Employee = {}
                         if (!values.title) {

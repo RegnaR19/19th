@@ -1,13 +1,13 @@
 import { Button, Group, Image, List, Modal } from "@mantine/core";
 import { useState } from 'react';
 import Indent10 from "./Indent";
-import gif from '../../assets/sasuke.gif'
+import gif from '../../assets/tower-of-god.gif'
 import { notifications } from "@mantine/notifications";
 import { IconBrandXbox } from "@tabler/icons-react";
 import { achievementSound, useAppDispatch } from '@/hoc/hooks';
 import { changelogAchievementAction } from '@/redux/achievementReducer';
 
-const AutoUpdate7 = () => {
+const AutoUpdate8 = () => {
     const [opened, setOpened] = useState(false);
     const [success, setSuccess] = useState(false)
     const dispatch = useAppDispatch()
@@ -47,28 +47,32 @@ const AutoUpdate7 = () => {
             <Modal size="auto"
                 opened={opened}
                 onClose={() => setOpened(false)}
-                title="Подробности обновления программы до версии 1.0.7"
+                title="Подробности обновления до версии 1.0.8, дата: хх.07.2024"
             >
                 <Image src={gif} mx="auto" radius="md" />
+                Tower of God (Башня бога)
                 <List>
                     <h4>Общие изменения:</h4>
-                    <List.Item>Добавлены достижения как на Xbox</List.Item>
-                    <List.Item>Добавлен звук достижений, на вход в программу, <br />ну и в принципе на любое событие сейчас можно добавить звук</List.Item>
-                    <List.Item>Все переделано с Redux на Redux Toolkit, внешних изменений не видно, <br />но внутренние довольно большие</List.Item>
-                    <List.Item>Обновлена форма статуса, переделана на Final Form</List.Item>
-                    <List.Item>Все данные берутся напрямую из базы состояний Redux</List.Item>
+                    <List.Item>Переходим на 2 цветный режим (черная и белая тема, черная основная)</List.Item>
+                    <List.Item>Добавлена кнопка переключения цветового режима</List.Item>
+                    <List.Item>Все пакеты (Mantine, React, Electron, Vite и т.д.) обновлены до последней версии</List.Item>
+                    <List.Item>Избавились от контейнеров, переходим на прямой путь подключения Redux базы</List.Item>
+                    <List.Item>Все компоненты программы успешно удалось перенести с 6 версии Mantine на 7</List.Item>
+                    <List.Item>Удалось подключить сервер Express.js, в будущем буду переходить на него</List.Item>
+                    <List.Item>...</List.Item>
                 </List>
                 <Indent10 />
             </Modal>
             <Indent10 />
             <Group justify="center">
                 <Button onClick={() => setOpened(true)} onClickCapture={addStatus}
-                    variant="gradient" gradient={{ from: '#1c7ed6', to: 'lime', deg: 45 }}>
-                    ✅ 1.0.7</Button>
+                    variant="gradient"
+                    gradient={{ from: 'grape', to: 'orange', deg: 90 }}>
+                    ✅ Версия 1.0.8</Button>
             </Group>
             <Indent10 />
         </>
     );
 }
 
-export default AutoUpdate7;
+export default AutoUpdate8;

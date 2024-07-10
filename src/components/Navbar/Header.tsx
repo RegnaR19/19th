@@ -1,16 +1,10 @@
 // страница header
-import { Grid, Group } from '@mantine/core';
+import { Grid } from '@mantine/core';
 import s from './Header.module.css';
 import ColorChange from '../Common/ChangeColor';
 import { useAppSelector } from '@/hoc/hooks';
-import { useParams } from 'react-router-dom';
-
-
 
 const Header = () => {
-
-   // isAuth: state.auth.isAuth
-   // login: state.auth.login
 
    const isAuth = useAppSelector(state => state.auth.isAuth)
    const login = useAppSelector(state => state.auth.login)
@@ -28,7 +22,6 @@ const Header = () => {
       }
    }
 
-
    return (
       <>
          <Grid justify="space-between" align="center" className={s.header}>
@@ -40,7 +33,5 @@ const Header = () => {
       </>
    );
 }
-
-
 
 export default Header
