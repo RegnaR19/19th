@@ -25,7 +25,7 @@ const PostElements = () => {
 
    let postElements =
       [...dialogsPage.posts].reverse().map((p: any) =>
-         <Cards id={p.id} key={p.id} header={p.post} message={p.message}
+         <Cards id={p.id} key={p.id} header={p.title} message={p.message}
             likescount={p.likescount} img={p.img} />)
 
    return (

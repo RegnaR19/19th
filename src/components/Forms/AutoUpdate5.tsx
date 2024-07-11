@@ -8,27 +8,6 @@ import { IconBrandXbox } from "@tabler/icons-react";
 const AutoUpdate5 = () => {
     const [opened, setOpened] = useState(false);
 
-    const successForm = () => {
-        notifications.show({
-            withCloseButton: true,
-            autoClose: 5000,
-            title: "10G за просмотр ченджлога!",
-            message: 'Спасибо за просмотр.',
-            color: 'lime',
-            icon: <IconBrandXbox />,
-            className: 'my-notification-class',
-            loading: false,
-            styles: (theme) => ({
-                root: {
-                    backgroundColor: theme.colors.gray[4],
-                    '&::before': { backgroundColor: theme.white },
-                },
-                title: { color: theme.black },
-                description: { color: theme.black },
-            }),
-        })
-    }
-
     return (
         <>
             <Modal size="auto"
@@ -51,7 +30,7 @@ const AutoUpdate5 = () => {
             </Modal>
             <Indent10 />
             <Group justify="center">
-                <Button onClick={() => setOpened(true)} onClickCapture={successForm}
+                <Button onClick={() => setOpened(true)}
                     variant="gradient" gradient={{ from: '#3f51b5', to: '#2236a4', deg: 45 }}>
                     ✅ 1.0.5</Button>
             </Group>

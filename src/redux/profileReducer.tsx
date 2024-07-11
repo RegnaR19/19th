@@ -34,9 +34,8 @@ export const profileSlice = createSlice({
    initialState,
    reducers: {
       addPost(state, action) {
-         let i = 4 
          let newPost = {
-            id: i++,
+            id: 4,
             title: action.payload,
             message: action.payload,
             likescount: 0,
@@ -56,7 +55,7 @@ export const profileSlice = createSlice({
    }
 })
 
-export const addPostCreator = (newPostText: any, title: any) => ({ type: "profile/addPost", payload: newPostText, title })
+export const addPostCreator = (title: string, message: string) => ({ type: "profile/addPost", payload: {title, message} })
 export const setUserProfileCreator = (profile: any) => ({ type: "profile/setUserProfile", payload: profile })
 export const setStatusCreator = (status: any) => ({ type: "profile/setStatus", payload: status })
 export const savePhotoSuccessCreator = (photos: any) => ({ type: "profile/savePhotoSuccess", payload: photos })

@@ -47,7 +47,7 @@ const AutoUpdate8 = () => {
             <Modal size="auto"
                 opened={opened}
                 onClose={() => setOpened(false)}
-                title="Подробности обновления до версии 1.0.8, дата: хх.07.2024"
+                title="Подробности обновления до версии 1.0.8, дата: 11.07.2024"
             >
                 <Image src={gif} mx="auto" radius="md" />
                 Tower of God (Башня бога)
@@ -59,7 +59,6 @@ const AutoUpdate8 = () => {
                     <List.Item>Избавились от контейнеров, переходим на прямой путь подключения Redux базы</List.Item>
                     <List.Item>Все компоненты программы успешно удалось перенести с 6 версии Mantine на 7</List.Item>
                     <List.Item>Удалось подключить сервер Express.js, в будущем буду переходить на него</List.Item>
-                    <List.Item>...</List.Item>
                 </List>
                 <Indent10 />
             </Modal>

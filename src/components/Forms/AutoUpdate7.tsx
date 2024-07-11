@@ -12,31 +12,9 @@ const AutoUpdate7 = () => {
     const [success, setSuccess] = useState(false)
     const dispatch = useAppDispatch()
 
-    const successForm = () => {
-        notifications.show({
-            withCloseButton: true,
-            autoClose: 10000,
-            title: "Достижение разблокировано",
-            message: '100G | Просмотрен ченджлог',
-            color: 'green',
-            icon: <IconBrandXbox />,
-            className: 'my-notification-class',
-            loading: false,
-            styles: (theme) => ({
-                root: {
-                    backgroundColor: theme.colors.gray[1],
-                    '&::before': { backgroundColor: theme.black },
-                },
-                title: { color: theme.black },
-                description: { color: theme.black },
-            }),
-        })
-    }
-
     const addStatus = () => {
         dispatch(changelogAchievementAction())
         if (!success) {
-            successForm()
             achievementSound()
         }
         setSuccess(true)

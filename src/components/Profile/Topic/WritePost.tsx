@@ -8,8 +8,8 @@ import s from "../../Common/FormsControls.module.css"
 import UploadPhotoPost from "./UploadPhotoPost";
 import { achievementSound, useAppDispatch } from '@/hoc/hooks';
 import { postAchievementAction } from '@/redux/achievementReducer';
-import { useState } from 'react';
-import { addPostCreator, addPost } from "@/redux/profileReducer";
+import { useEffect, useState } from 'react';
+import { addPostCreator, addPost, profileSlice } from "@/redux/profileReducer";
 
 const WritePost = () => {
 
@@ -17,6 +17,7 @@ const WritePost = () => {
    const addAchievement = () => {
       dispatch(postAchievementAction())
    }
+   const { addPost } = profileSlice.actions
    const [success, setSuccess] = useState(false)
 
    const successForm = () => {
@@ -40,20 +41,13 @@ const WritePost = () => {
       })
    }
 
-   const add = (values: any) => {
-      dispatch(addPost(values.title))
-      dispatch(addPostCreator(values.newPostText, values.title))
-      addAchievement()
-      if (!success) {
-         successForm()
-         achievementSound()
-      }
-      setSuccess(true)
+   const add = (title: any, message: any) => {
+      dispatch(addPost({ title, message }))
    }
 
    type Employee = {
       title?: any
-      newPostText?: any
+      message?: any
    }
 
    return (
@@ -72,8 +66,8 @@ const WritePost = () => {
                         if (!values.title) {
                            errors.title = 'Необходимо заполнить заголовок'
                         }
-                        if (!values.newPostText) {
-                           errors.newPostText = 'Необходимо заполнить сообщение'
+                        if (!values.message) {
+                           errors.message = 'Необходимо заполнить сообщение'
                         }
                         return errors
                      }}
@@ -88,7 +82,7 @@ const WritePost = () => {
                               )}
                            </Field>
                            <Indent10 />
-                           <Field name="newPostText" component="textarea">
+                           <Field name="message" component="textarea">
                               {({ input, meta }) => (
                                  <div className={s.form}>
                                     <Textarea {...input} placeholder="Дуров, верни стену!" />
