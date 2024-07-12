@@ -2,7 +2,7 @@
 import ProfileInfo from './ProfileInfo';
 import Avatar from './common/Avatar';
 import { Grid } from '@mantine/core';
-import WritePost from './Topic/WritePost';
+import WritePost from "./Topic/WritePost";
 import PostElements from './Topic/PostElements';
 import ProfileStatus from './ProfileStatus';
 import Indent10 from '../Forms/Indent';

@@ -6,12 +6,12 @@ import { IconHeart, IconHeartFilled, IconMessageCircle } from '@tabler/icons-rea
 type Props = {
    id: number,
    header: string,
-   message: string,
+   postText: string,
    likescount: number,
    img: string
 }
 
-const Cards: React.FC<Props> = ({ id, header, message, likescount, img }) => {
+const Cards: React.FC<Props> = ({ id, header, postText, likescount, img }) => {
    return (
       <><Card shadow="sm" p="lg" radius="md" withBorder className={s.item}>
          <Group justify="apart" mb="xs">
@@ -26,7 +26,7 @@ const Cards: React.FC<Props> = ({ id, header, message, likescount, img }) => {
          </Group>
 
          <Text>
-            {message}
+            {postText}
          </Text>
          <br />
          <Card.Section className={s.item}>

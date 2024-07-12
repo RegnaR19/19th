@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { NavLink as NavMantine } from '@mantine/core';
 import {
    IconSettings,
-   IconAt, IconActivity, IconCircleOff, IconBadge4k, IconUsers, IconAddressBook, IconNews, IconLogout
+   IconAt, IconActivity, IconCircleOff, IconBadge4k, IconUsers, IconAddressBook, IconNews, IconLogout,
+   IconRotateClockwise2,
+   IconEyeCog
 } from '@tabler/icons-react';
 import s from './Navigation.module.css'
 import { notifications } from '@mantine/notifications';
@@ -94,8 +96,13 @@ const Navigation = (props: any) => {
             </NavLink>
             <NavLink to="test">
                <NavMantine
-                  leftSection={<IconCircleOff size={18} stroke={1.5} />}
+                  leftSection={<IconEyeCog size={18} stroke={1.5} />}
                   description='Эксперименты' label="Тестовая" component='span' />
+            </NavLink>
+            <NavLink to="changelog">
+               <NavMantine
+                  leftSection={<IconRotateClockwise2 size={18} stroke={1.5} />}
+                  label="Обновления" component='span' />
             </NavLink>
 
             {isAuth ? <NavLink to='' onClick={() => { successExitYo() }} onClickCapture={logout1}>

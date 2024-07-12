@@ -16,7 +16,6 @@ const ChangelogSidebar = () => {
          <Grid justify="center" align="center">
             <Grid.Col>
                <center><div className='big-title'>История</div>
-               <a href='https://dtf.ru/'>Ссылочка</a>
                   <AutoUpdate8 />
                   <Accordion defaultValue="customization">
                      <Accordion.Item value="flexibility">

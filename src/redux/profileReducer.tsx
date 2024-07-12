@@ -8,16 +8,16 @@ import { createSlice } from '@reduxjs/toolkit'
 type Posts = {
    id: number
    title: string
-   message: string
+   postText: string
    likescount: number
    img: string
 }
 
 let initialState = {
    posts: [
-      { id: 1, title: "Cyberpunk 2077", message: "Сюжет Cyberpunk 2077 рассказывает о герое/героине Ви из города Найт-Сити — опасной и мультикультурной клоаке будущего с могущественными корпорациями, уличными бандами, насилием, имплантами и сексом. Пытаясь сорвать куш и примкнуть к преступной элите города, Ви и его друг Джеки Уэллс решаются на опасное дело. Естественно, задание вылезет им боком и приведет к головокружительным приключениям, смертям и новым знакомствам. Во время безумного хоровода зрелищных событий, которые позже оказываются лишь прологом, Ви встречает обезбашенную личность из прошлого, рок-музыканта и террориста Джонни Сильверхенда (Киану Ривз). И вот тут у главного героя начинаются реальные проблемы.", likescount: 300, img: cyber },
-      { id: 2, title: "Dota 2", message: "Dota 2 — компьютерная многопользовательская командная игра жанра стратегия в реальном времени с элементами компьютерной ролевой игры, реализация известной карты DotA для игры Warcraft III в отдельном клиенте. В игре участвуют две команды по пять человек. Одна команда играет за светлую сторону, другая — за темную.", likescount: 1000, img: dota },
-      { id: 3, title: "Fable", message: "Fable - своего рода симулятор героя, пушествующего по городам и селам мира Альбион. Жизнь нашего персонажа, за которым мы следим чуть ли не с младенческого возраста, - постоянный выбор между черным и белым, между добром и злом.", likescount: 5000, img: fable },
+      { id: 1, title: "Cyberpunk 2077", postText: "Сюжет Cyberpunk 2077 рассказывает о герое/героине Ви из города Найт-Сити — опасной и мультикультурной клоаке будущего с могущественными корпорациями, уличными бандами, насилием, имплантами и сексом. Пытаясь сорвать куш и примкнуть к преступной элите города, Ви и его друг Джеки Уэллс решаются на опасное дело. Естественно, задание вылезет им боком и приведет к головокружительным приключениям, смертям и новым знакомствам. Во время безумного хоровода зрелищных событий, которые позже оказываются лишь прологом, Ви встречает обезбашенную личность из прошлого, рок-музыканта и террориста Джонни Сильверхенда (Киану Ривз). И вот тут у главного героя начинаются реальные проблемы.", likescount: 300, img: cyber },
+      { id: 2, title: "Dota 2", postText: "Dota 2 — компьютерная многопользовательская командная игра жанра стратегия в реальном времени с элементами компьютерной ролевой игры, реализация известной карты DotA для игры Warcraft III в отдельном клиенте. В игре участвуют две команды по пять человек. Одна команда играет за светлую сторону, другая — за темную.", likescount: 1000, img: dota },
+      { id: 3, title: "Fable", postText: "Fable - своего рода симулятор героя, пушествующего по городам и селам мира Альбион. Жизнь нашего персонажа, за которым мы следим чуть ли не с младенческого возраста, - постоянный выбор между черным и белым, между добром и злом.", likescount: 5000, img: fable },
    ] as Array<Posts>,
    profile: {
       photos: {},
@@ -37,7 +37,7 @@ export const profileSlice = createSlice({
          let newPost = {
             id: 4,
             title: action.payload,
-            message: action.payload,
+            postText: action.payload,
             likescount: 0,
             img: newPostImage
          }
@@ -55,7 +55,8 @@ export const profileSlice = createSlice({
    }
 })
 
-export const addPostCreator = (title: string, message: string) => ({ type: "profile/addPost", payload: {title, message} })
+export const addPostCreator = (title: any) => ({ type: "profile/addPost", payload: title })
+export const addPostPostText = (postText: any) => ({ type: "profile/addPost", payload: postText })
 export const setUserProfileCreator = (profile: any) => ({ type: "profile/setUserProfile", payload: profile })
 export const setStatusCreator = (status: any) => ({ type: "profile/setStatus", payload: status })
 export const savePhotoSuccessCreator = (photos: any) => ({ type: "profile/savePhotoSuccess", payload: photos })

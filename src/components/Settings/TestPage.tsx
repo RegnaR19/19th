@@ -1,8 +1,8 @@
 // экспериментальная страница
-import { achievementSound, useAppDispatch } from '@/hoc/hooks';
+import { achievementSound, successForm, useAppDispatch } from '@/hoc/hooks';
 import { hidestAchievementAction } from '@/redux/achievementReducer';
 import { notifications } from '@mantine/notifications';
-import { IconBrandXbox } from '@tabler/icons-react';
+import { IconBrandXbox, IconGauge, IconFingerprint, IconActivity, IconChevronRight } from '@tabler/icons-react';
 import { useEffect, useState } from 'react'
 
 const TestPage = () => {
@@ -11,46 +11,21 @@ const TestPage = () => {
    const [success, setSuccess] = useState(false)
    const dispatch = useAppDispatch()
 
-   const successForm = () => {
-      notifications.show({
-         withCloseButton: true,
-         autoClose: 10000,
-         title: "Скрытое достижение разблокировано",
-         message: '200G | Вы кликнули 25 раз на кнопку "Кликни на меня"',
-         color: 'green',
-         icon: <IconBrandXbox />,
-         className: 'my-notification-class',
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      })
-   }
-
    useEffect(() => {
-      document.title = `Вы кликнули ${count} раз`;
-      if (count == 25) {
+      if (count == 1) {
          if (!success) {
             dispatch(hidestAchievementAction())
-            successForm()
+            successForm(notifications.show({ message: 'Привет' }))
             achievementSound()
          }
          setSuccess(true)
       }
    }), [count];
 
-
-
-
-
    return (
       <>
          <div className="col2-app">
+            <div className='big-title'>Тестовая страница</div>
             <p>Вы кликнули {count} раз</p>
             <button onClick={() => setCount(count + 1)}>
                Кликни на меня

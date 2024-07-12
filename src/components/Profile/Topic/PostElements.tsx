@@ -5,7 +5,7 @@ import { useInView, useSpring, animated } from '@react-spring/web'
 
 const PostElements = () => {
    
-   const dialogsPage = useAppSelector(state => state.profilePage)
+   const profilePosts = useAppSelector(state => state.profilePage)
    
    const [ref, style] = useInView(
       () => ({
@@ -24,8 +24,8 @@ const PostElements = () => {
    )
 
    let postElements =
-      [...dialogsPage.posts].reverse().map((p: any) =>
-         <Cards id={p.id} key={p.id} header={p.title} message={p.message}
+      [...profilePosts.posts].reverse().map((p: any) =>
+         <Cards id={p.id} key={p.id} header={p.title} postText={p.postText}
             likescount={p.likescount} img={p.img} />)
 
    return (

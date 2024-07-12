@@ -27,6 +27,7 @@ import { IconBrandXbox } from '@tabler/icons-react'
 import Header from "./components/Navbar/Header";
 import Navigation from "./components/Navbar/Navigation";
 import ChangelogSidebar from "./components/Navbar/ChangelogSidebar";
+import ChangelogPage from "./components/Changelog/ChangelogPage";
 // import UpdateElectron from '@/components/update'
 
 const App = () => {
@@ -140,6 +141,7 @@ const App = () => {
                      <Route path="settings" element={<SettingsPage />} />
                      <Route path="test" element={<TestPage />} />
                      <Route path="video" element={<VideoPage />} />
+                     <Route path="changelog" element={<ChangelogPage />} />
                      <Route path="login" element={
                         <Suspense fallback={' '}>
                            <Login />
