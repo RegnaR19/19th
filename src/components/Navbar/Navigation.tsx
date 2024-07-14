@@ -8,10 +8,8 @@ import {
    IconEyeCog
 } from '@tabler/icons-react';
 import s from './Navigation.module.css'
-import { notifications } from '@mantine/notifications';
-import { IconBrandXbox } from '@tabler/icons-react';
-import { achievementSound, useAppDispatch, useAppSelector } from '@/hoc/hooks';
-import { useEffect, useState } from 'react';
+import { successAchievement, useAppDispatch, useAppSelector } from '@/hoc/hooks';
+import { useState } from 'react';
 import { logoutAchievementAction } from '@/redux/achievementReducer';
 import { logout } from '@/redux/authReducer';
 
@@ -21,33 +19,10 @@ const Navigation = (props: any) => {
    const [success, setSuccess] = useState(false)
    const isAuth = useAppSelector(state => state.auth.isAuth)
 
-   const successExit = () => {
-      return notifications.show({
-         id: 'logout',
-         withCloseButton: false,
-         autoClose: 10000,
-         title: "Достижение разблокировано",
-         message: '100G | Вы вышли из аккаунта',
-         color: 'green',
-         icon: <IconBrandXbox />,
-         className: 'my-notification-class',
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      })
-   }
-
    const successExitYo = () => {
       if (!success) {
          dispatch(logoutAchievementAction())
-         achievementSound()
-         successExit()
+         successAchievement('100G | Вы вышли из аккаунта')
       }
       setSuccess(true)
    }

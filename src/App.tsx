@@ -11,7 +11,6 @@ const Login = lazy(() => import('./components/Profile/Login'));
 const MainProfile = lazy(() => import('./components/Profile/MainProfile'));
 import { MantineProvider, createTheme, rem } from '@mantine/core';
 import {
-   emotionTransform,
    MantineEmotionProvider,
 } from '@mantine/emotion';
 import { Notifications, notifications } from "@mantine/notifications";
@@ -20,10 +19,9 @@ import '@mantine/core/styles.css';
 import s from "./App.module.css"
 import './App.scss'
 import AchievementSidebar from "./components/Navbar/AchievementSidebar"
-import { startUp, useAppDispatch } from './hoc/hooks';
+import { startUp, successAchievement, useAppDispatch } from './hoc/hooks';
 import { initApp } from './redux/appReducer';
 import Dialogs from './components/Dialogs/Dialogs';
-import { IconBrandXbox } from '@tabler/icons-react'
 import Header from "./components/Navbar/Header";
 import Navigation from "./components/Navbar/Navigation";
 import ChangelogSidebar from "./components/Navbar/ChangelogSidebar";
@@ -33,30 +31,12 @@ import ChangelogPage from "./components/Changelog/ChangelogPage";
 const App = () => {
 
    const dispatch = useAppDispatch()
-   const successForm = () => {
-      notifications.show({
-         withCloseButton: true,
-         autoClose: 10000,
-         title: "Добро пожаловать, пользователь",
-         message: 'Сможешь ли набрать 1000G?',
-         color: 'green',
-         icon: <IconBrandXbox />,
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      })
-   }
+
    useEffect(() => {
       dispatch(initApp())
-      // successForm()
+      // successAchievement('Успешная инициализация)
       // startUp()
-   }, [successForm])
+   }, [successAchievement])
 
    const theme = createTheme({
       colors: {

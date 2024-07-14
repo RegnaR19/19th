@@ -1,10 +1,8 @@
 import { Button, Grid, Input } from "@mantine/core"
-import { IconBrandXbox } from "@tabler/icons-react"
 import { useState } from "react"
-import { notifications } from "@mantine/notifications"
 import { useSpring, animated } from '@react-spring/web'
 import { profileSlice, updateStatus } from '@/redux/profileReducer'
-import { achievementSound, useAppDispatch, useAppSelector } from '@/hoc/hooks'
+import { achievementSound, successAchievement, useAppDispatch, useAppSelector } from '@/hoc/hooks'
 import { Field, Form } from 'react-final-form'
 import Indent10 from '../Forms/Indent'
 import { statusAchievementAction } from '@/redux/achievementReducer'
@@ -16,18 +14,6 @@ const ProfileStatus = () => {
    const { setStatus } = profileSlice.actions
    const dispatch = useAppDispatch()
    const status = useAppSelector(state => state.profilePage.status)
-
-   const successForm = (status: string) => {
-      notifications.show({
-         withCloseButton: false,
-         autoClose: 10000,
-         title: "Достижение разблокировано",
-         message: `100G | Статус изменен: ${status}`,
-         color: 'green',
-         icon: <IconBrandXbox />,
-         loading: false
-   })
-   }
 
    const [springs] = useSpring(() => ({
       from: {
@@ -54,8 +40,7 @@ const ProfileStatus = () => {
       dispatch(statusAchievementAction())
       setEditMode(false)
       if (!success) {
-         successForm(values.status)
-         achievementSound()
+         successAchievement(`100G | Статус изменен: ${values.status}`)
       }
       setSuccess(true)
    }

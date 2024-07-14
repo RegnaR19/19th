@@ -6,10 +6,8 @@ import { login } from "@/redux/authReducer";
 import { useEffect, useState } from "react";
 import s from "./../Common/FormsControls.module.css"
 import { useNavigate } from "react-router-dom";
-import { achievementSound, useAppDispatch, useAppSelector } from '@/hoc/hooks';
+import { successAchievement, useAppDispatch, useAppSelector } from '@/hoc/hooks';
 import { loginAchievementAction } from '@/redux/achievementReducer';
-import { notifications } from "@mantine/notifications";
-import { IconBrandXbox } from "@tabler/icons-react";
 
 
 const Login = () => {
@@ -19,28 +17,6 @@ const Login = () => {
       password?: any
    }
 
-   const successLogin = () => {
-      notifications.show({
-         id: 'login',
-         withCloseButton: false,
-         autoClose: 5000,
-         title: "Достижение разблокировано",
-         message: '100G | Вы вошли в аккаунт',
-         color: 'green',
-         icon: <IconBrandXbox />,
-         className: 'my-notification-class',
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      })
-   }
-   
    const dispatch = useAppDispatch()
    const isAuth = useAppSelector(state => state.auth.isAuth)
    const [success, setSuccess] = useState(false)
@@ -48,7 +24,7 @@ const Login = () => {
    const addNewForExit = () => {
       if (!success) {
          dispatch(loginAchievementAction())
-         achievementSound()
+         successAchievement('100G | Вы вошли в аккаунт')
       }
       setSuccess(true)
    }
@@ -64,7 +40,7 @@ const Login = () => {
    }, [isAuth])
 
    useEffect(() => {
-      { isAuth ? successLogin() : '' }
+      { isAuth ? successAchievement('') : '' }
    }, [isAuth])
 
    useEffect(() => {

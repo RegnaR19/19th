@@ -2,23 +2,9 @@ import { Button, Group, Image, List, Modal } from "@mantine/core";
 import { useState } from 'react';
 import Indent10 from "../Forms/Indent";
 import gif from '../../assets/sasuke.gif'
-import { notifications } from "@mantine/notifications";
-import { IconBrandXbox } from "@tabler/icons-react";
-import { achievementSound, useAppDispatch } from '@/hoc/hooks';
-import { changelogAchievementAction } from '@/redux/achievementReducer';
 
 const AutoUpdate7 = () => {
     const [opened, setOpened] = useState(false);
-    const [success, setSuccess] = useState(false)
-    const dispatch = useAppDispatch()
-
-    const addStatus = () => {
-        dispatch(changelogAchievementAction())
-        if (!success) {
-            achievementSound()
-        }
-        setSuccess(true)
-    }
 
     return (
         <>
@@ -40,7 +26,7 @@ const AutoUpdate7 = () => {
             </Modal>
             <Indent10 />
             <Group justify="center">
-                <Button onClick={() => setOpened(true)} onClickCapture={addStatus}
+                <Button onClick={() => setOpened(true)}
                     variant="gradient" gradient={{ from: '#1c7ed6', to: 'lime', deg: 45 }}>
                     ✅ 1.0.7</Button>
             </Group>

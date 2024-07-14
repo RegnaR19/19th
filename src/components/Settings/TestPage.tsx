@@ -1,5 +1,5 @@
 // экспериментальная страница
-import { achievementSound, successForm, useAppDispatch } from '@/hoc/hooks';
+import { achievementSound, successAchievement, useAppDispatch } from '@/hoc/hooks';
 import { hidestAchievementAction } from '@/redux/achievementReducer';
 import { notifications } from '@mantine/notifications';
 import { IconBrandXbox, IconGauge, IconFingerprint, IconActivity, IconChevronRight } from '@tabler/icons-react';
@@ -15,8 +15,7 @@ const TestPage = () => {
       if (count == 1) {
          if (!success) {
             dispatch(hidestAchievementAction())
-            successForm(notifications.show({ message: 'Привет' }))
-            achievementSound()
+            successAchievement('200G | Вы сделали кастомный хук')
          }
          setSuccess(true)
       }

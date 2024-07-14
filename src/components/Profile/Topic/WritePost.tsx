@@ -5,7 +5,7 @@ import { IconAlignBoxLeftBottomFilled, IconBrandXbox } from "@tabler/icons-react
 import { Form, Field } from 'react-final-form';
 import s from "../../Common/FormsControls.module.css";
 import UploadPhotoPost from "./UploadPhotoPost";
-import { useAppDispatch, useAppSelector } from '@/hoc/hooks';
+import { successAchievement, useAppDispatch, useAppSelector } from '@/hoc/hooks';
 import { postAchievementAction } from '@/redux/achievementReducer';
 import { useState } from 'react';
 import { addPostCreator, addPostPostText, profileSlice } from "@/redux/profileReducer";
@@ -16,33 +16,14 @@ export const WritePost = () => {
    const { addPost } = profileSlice.actions
    const addAchievement = () => {
       dispatch(postAchievementAction());
+      successAchievement('100G | Новый пост')
    };
    const [success, setSuccess] = useState(false);
-
-   const successForm = () => {
-      notifications.show({
-         withCloseButton: false,
-         autoClose: 10000,
-         title: "Достижение разблокировано",
-         message: `100G | Размещен новый пост`,
-         color: 'green',
-         icon: <IconBrandXbox />,
-         className: 'my-notification-class',
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      });
-   };
 
    const add = (value: any) => {
       dispatch(addPostCreator(value.title));
       dispatch(addPostPostText(value.postText));
+      addAchievement()
    };
 
    type Employee = {

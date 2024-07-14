@@ -1,4 +1,4 @@
-import { achievementSound, useAppDispatch } from '@/hoc/hooks';
+import { achievementSound, successAchievement, useAppDispatch } from '@/hoc/hooks';
 import { achievementSlice } from '@/redux/achievementReducer';
 import { FileInput, rem } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
@@ -13,31 +13,9 @@ const UploadPhotoPost = () => {
   const addNewForAttach = () => {
     if (!success) {
       dispatch(attachAchievement(100))
-      achievementSound()
-      ohh()
+      successAchievement('100G | Вы попытались прикрепить файл')
     }
     setSuccess(true)
-  }
-
-  const ohh = () => {
-    notifications.show({
-      withCloseButton: false,
-      autoClose: 10000,
-      title: "Достижение разблокировано",
-      message: '100G | Вы попытались прикрепить файл',
-      color: 'green',
-      icon: <IconBrandXbox />,
-      className: 'my-notification-class',
-      loading: false,
-      styles: (theme) => ({
-        root: {
-          backgroundColor: theme.colors.gray[1],
-          '&::before': { backgroundColor: theme.black },
-        },
-        title: { color: theme.black },
-        description: { color: theme.black },
-      }),
-    })
   }
 
   const icon = <IconUpload style={{ width: rem(18), height: rem(18) }} stroke={1.5} />

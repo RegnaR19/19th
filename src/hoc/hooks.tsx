@@ -26,12 +26,12 @@ export const theEND = () => new Howl({
     autoplay: true
 })
 
-export let successForm = (title: any) => {
+export let successForm = (message: string) => {
     notifications.show({
         withCloseButton: true,
         autoClose: 10000,
-        title: [title],
-        message: 'Hi',
+        title: 'Достижение разблокировано',
+        message: message,
         color: 'green',
         icon: <IconBrandXbox />,
         className: 'my-notification-class',
@@ -46,3 +46,8 @@ export let successForm = (title: any) => {
         }),
     })
 }
+
+export const successAchievement = (message: string) => {
+    successForm(message)
+    achievementSound()
+ }

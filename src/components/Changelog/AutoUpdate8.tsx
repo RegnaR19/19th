@@ -2,9 +2,7 @@ import { Button, Group, Image, List, Modal } from "@mantine/core";
 import { useState } from 'react';
 import Indent10 from "../Forms/Indent";
 import gif from '../../assets/tower-of-god.gif'
-import { notifications } from "@mantine/notifications";
-import { IconBrandXbox } from "@tabler/icons-react";
-import { achievementSound, useAppDispatch } from '@/hoc/hooks';
+import { achievementSound, successAchievement, useAppDispatch } from '@/hoc/hooks';
 import { changelogAchievementAction } from '@/redux/achievementReducer';
 
 const AutoUpdate8 = () => {
@@ -12,32 +10,10 @@ const AutoUpdate8 = () => {
     const [success, setSuccess] = useState(false)
     const dispatch = useAppDispatch()
 
-    const successForm = () => {
-        notifications.show({
-            withCloseButton: true,
-            autoClose: 10000,
-            title: "Достижение разблокировано",
-            message: '100G | Просмотрен ченджлог',
-            color: 'green',
-            icon: <IconBrandXbox />,
-            className: 'my-notification-class',
-            loading: false,
-            styles: (theme) => ({
-                root: {
-                    backgroundColor: theme.colors.gray[1],
-                    '&::before': { backgroundColor: theme.black },
-                },
-                title: { color: theme.black },
-                description: { color: theme.black },
-            }),
-        })
-    }
-
     const addStatus = () => {
         dispatch(changelogAchievementAction())
         if (!success) {
-            successForm()
-            achievementSound()
+            successAchievement('100G | Просмотрен ченджлог')
         }
         setSuccess(true)
     }

@@ -1,4 +1,4 @@
-import { achievementSound, useAppDispatch } from '@/hoc/hooks'
+import { achievementSound, successAchievement, useAppDispatch } from '@/hoc/hooks'
 import { newPhotoAchievementAction } from '@/redux/achievementReducer'
 import { savePhoto } from '@/redux/profileReducer'
 import { Button, FileButton, Text, rem } from '@mantine/core'
@@ -13,27 +13,6 @@ const UploadAvatar = () => {
    const dispatch = useAppDispatch()
    const [file, setFile] = useState<File | null>(null)
 
-   const successForm = () => {
-      notifications.show({
-         withCloseButton: true,
-         autoClose: 10000,
-         title: "Достижение разблокировано",
-         message: '100G | Вы успешно изменили аватар',
-         color: 'green',
-         icon: <IconBrandXbox />,
-         className: 'my-notification-class',
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      })
-   }
-
    const onMainPhotoSelected = (value: any) => {
       let partName = value
 
@@ -41,8 +20,7 @@ const UploadAvatar = () => {
          dispatch(savePhoto(partName))
          dispatch(newPhotoAchievementAction())
          if (!success) {
-            successForm()
-            achievementSound()
+            successAchievement('100G | Вы успешно изменили аватар')
          }
          setSuccess(true)
       }

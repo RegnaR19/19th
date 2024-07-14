@@ -1,11 +1,9 @@
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Messages from './Messages/MessagesLink';
-import { Button, Grid } from '@mantine/core';
+import { Grid } from '@mantine/core';
 import DialogsForm from './Messages/DialogsForm';
-import { notifications } from '@mantine/notifications';
-import { IconBrandXbox } from '@tabler/icons-react';
-import { achievementSound, useAppDispatch, useAppSelector } from '@/hoc/hooks';
+import { achievementSound, successAchievement, useAppDispatch, useAppSelector } from '@/hoc/hooks';
 import { dialogsSlice } from '@/redux/dialogsReducer';
 import { useState } from 'react';
 import { messageAchievementAction } from '@/redux/achievementReducer';
@@ -23,26 +21,7 @@ const Dialogs = () => {
    let messagesElements =
       dialogsPage.messages.map((e: any) => <Messages id={e.id} key={e.id} message={e.message} />)
 
-   const successForm = () => {
-      notifications.show({
-         withCloseButton: false,
-         autoClose: 10000,
-         title: "Достижение разблокировано",
-         message: '100G | Отправлено сообщение',
-         color: 'green',
-         icon: <IconBrandXbox />,
-         className: 'my-notification-class',
-         loading: false,
-         styles: (theme) => ({
-            root: {
-               backgroundColor: theme.colors.gray[1],
-               '&::before': { backgroundColor: theme.black },
-            },
-            title: { color: theme.black },
-            description: { color: theme.black },
-         }),
-      })
-   }
+
 
    const sendMessageDispatch = (message: any) => {
       dispatch(sendMessage(message))
@@ -52,8 +31,7 @@ const Dialogs = () => {
       sendMessageDispatch(values.message)
       dispatch(messageAchievementAction())
       if (!success) {
-         successForm()
-         achievementSound()
+         successAchievement('100G | Сообщение отправлено')
       }
       setSuccess(true)
    }
