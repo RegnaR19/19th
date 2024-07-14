@@ -1,13 +1,13 @@
 // страница header
 import { Accordion, Grid } from '@mantine/core'
 import Indent10 from '../Forms/Indent';
-import AutoUpdate4 from '../Forms/AutoUpdate4';
-import AutoUpdate3 from '../Forms/AutoUpdate3';
-import AutoUpdate2 from '../Forms/AutoUpdate2';
-import AutoUpdate5 from '../Forms/AutoUpdate5';
-import AutoUpdate6 from '../Forms/AutoUpdate6';
-import AutoUpdate7 from '../Forms/AutoUpdate7';
-import AutoUpdate8 from '../Forms/AutoUpdate8';
+import AutoUpdate4 from '../Changelog/AutoUpdate4';
+import AutoUpdate3 from '../Changelog/AutoUpdate3';
+import AutoUpdate2 from '../Changelog/AutoUpdate2';
+import AutoUpdate5 from '../Changelog/AutoUpdate5';
+import AutoUpdate6 from '../Changelog/AutoUpdate6';
+import AutoUpdate7 from '../Changelog/AutoUpdate7';
+import AutoUpdate8 from '../Changelog/AutoUpdate8';
 
 const ChangelogSidebar = () => {
 

@@ -1,6 +1,6 @@
 import { Button, Group, Image, List, Modal } from "@mantine/core";
 import { useState } from 'react';
-import Indent10 from "./Indent";
+import Indent10 from "../Forms/Indent";
 import s from '../../App.module.css'
 import { IconChartDonut3 } from "@tabler/icons-react";
 import rick from '../../assets/rick.jpg'

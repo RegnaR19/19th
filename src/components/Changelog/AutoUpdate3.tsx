@@ -1,6 +1,6 @@
 import { Button, Group, Image, List, Modal } from "@mantine/core";
 import { useState } from 'react';
-import Indent10 from "./Indent";
+import Indent10 from "../Forms/Indent";
 import chica from '../../assets/chika-fujiwara.gif'
 import tobe from '../../assets/to-be-continued.jpg'
 
