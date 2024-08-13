@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 const AchievementSidebar = () => {
 
    const [opened, setOpened] = useState(false);
+   const [text, setText] = useState('');
 
    const attach = useAppSelector(state => state.achievement.attach)
    const status = useAppSelector(state => state.achievement.status)
@@ -20,9 +21,10 @@ const AchievementSidebar = () => {
 
    const total = attach + status + post + login + logout + changelog + message + hidest + newPhoto
    useEffect(() => {
-      if (total === 1000) {
+      if (total === 200) {
          theEND()
          setOpened(true)
+         setText('Завершено!')
       }
    }, [total])
 
@@ -32,8 +34,9 @@ const AchievementSidebar = () => {
             <Grid.Col>
                <center><div className='big-text'>Система достижений</div>
                   <div className='achievement'>
-                     {total} G
+                     {total} G<br></br>
                   </div>
+                  {text}
                </center>
             </Grid.Col>
          </Grid >
@@ -42,9 +45,10 @@ const AchievementSidebar = () => {
             onClose={() => setOpened(false)}
             title="Congratulations!"
          >
-            <Image src={gif} mx="auto" radius="md" />
-            <h2>Вы достигли 1000 G и получаете приз: автомобиль!<br />
+            <h2>Вы достигли 1000 G!<br />
                И песню Yoasobi - Idol</h2>
+
+            <Image src={gif} mx="auto" radius="md" />
          </Modal>
       </>
    );

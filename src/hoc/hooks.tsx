@@ -11,19 +11,23 @@ export const useAppDispatch = () => useDispatch<AppDispatch>()
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 export const achievementSound = () => {
-    new Audio(achievement).play()
+    let a = new Audio(achievement)
+    a.volume = 0.1;
+    a.play()
 }
 
 export const startUp = () => new Howl({
     src: [startup],
     format: ['mp3'],
-    autoplay: true
+    autoplay: true,
+    volume: 0.5
 })
 
 export const theEND = () => new Howl({
     src: [theend],
     format: ['mp3'],
-    autoplay: true
+    autoplay: true,
+    volume: 0.1
 })
 
 export let successForm = (message: string) => {
@@ -50,4 +54,4 @@ export let successForm = (message: string) => {
 export const successAchievement = (message: string) => {
     successForm(message)
     achievementSound()
- }
+}

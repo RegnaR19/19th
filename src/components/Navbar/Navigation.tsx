@@ -5,7 +5,8 @@ import {
    IconSettings,
    IconAt, IconActivity, IconCircleOff, IconBadge4k, IconUsers, IconAddressBook, IconNews, IconLogout,
    IconRotateClockwise2,
-   IconEyeCog
+   IconEyeCog,
+   IconPhoto
 } from '@tabler/icons-react';
 import s from './Navigation.module.css'
 import { successAchievement, useAppDispatch, useAppSelector } from '@/hoc/hooks';
@@ -68,6 +69,11 @@ const Navigation = (props: any) => {
                <NavMantine
                   leftSection={<IconSettings size={18} stroke={1.5} />}
                   description='' label="Настройки" component='span' />
+            </NavLink>
+            <NavLink to="gallery">
+               <NavMantine
+                  leftSection={<IconPhoto size={18} stroke={1.5} />}
+                  label="Галерея" description='4х4' component='span' />
             </NavLink>
             <NavLink to="test">
                <NavMantine

@@ -13,7 +13,7 @@ import { MantineProvider, createTheme, rem } from '@mantine/core';
 import {
    MantineEmotionProvider,
 } from '@mantine/emotion';
-import { Notifications, notifications } from "@mantine/notifications";
+import { Notifications } from "@mantine/notifications";
 import '@mantine/notifications/styles.css';
 import '@mantine/core/styles.css';
 import s from "./App.module.css"
@@ -26,6 +26,7 @@ import Header from "./components/Navbar/Header";
 import Navigation from "./components/Navbar/Navigation";
 import ChangelogSidebar from "./components/Navbar/ChangelogSidebar";
 import ChangelogPage from "./components/Changelog/ChangelogPage";
+import GalleryPage from "./components/Gallery/GalleryPage";
 // import UpdateElectron from '@/components/update'
 
 const App = () => {
@@ -122,6 +123,7 @@ const App = () => {
                      <Route path="test" element={<TestPage />} />
                      <Route path="video" element={<VideoPage />} />
                      <Route path="changelog" element={<ChangelogPage />} />
+                     <Route path="gallery" element={<GalleryPage />} />
                      <Route path="login" element={
                         <Suspense fallback={' '}>
                            <Login />

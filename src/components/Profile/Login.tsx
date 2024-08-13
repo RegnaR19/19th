@@ -40,10 +40,6 @@ const Login = () => {
    }, [isAuth])
 
    useEffect(() => {
-      { isAuth ? successAchievement('') : '' }
-   }, [isAuth])
-
-   useEffect(() => {
       { isAuth ? addNewForExit() : '' }
    }, [isAuth])
 
