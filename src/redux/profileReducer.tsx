@@ -20,7 +20,7 @@ let initialState = {
       { id: 3, title: "Fable", postText: "Fable - своего рода симулятор героя, пушествующего по городам и селам мира Альбион. Жизнь нашего персонажа, за которым мы следим чуть ли не с младенческого возраста, - постоянный выбор между черным и белым, между добром и злом.", likescount: 5000, img: fable },
    ] as Array<Posts>,
    profile: {
-      photos: {},
+      photos: {} as any,
       userId: null,
       fullName: null
    },

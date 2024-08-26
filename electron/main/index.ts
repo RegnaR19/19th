@@ -31,7 +31,7 @@ if (!app.requestSingleInstanceLock()) {
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'false'
 
-let win: BrowserWindow | null = null
+let win: BrowserWindow 
 const preload = path.join(__dirname, '../preload/index.mjs')
 const indexHtml = path.join(RENDERER_DIST, 'index.html')
 let tray
@@ -111,7 +111,6 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', () => {
-  win = null
   if (process.platform !== 'darwin') app.quit()
 })
 
